@@ -179,18 +179,12 @@
                 android:visibility="gone"
                 android:weightSum="1">
 
-                <fragment
-                    android:id="@+id/autocomplete"
+                <fragment android:id="@+id/autocomplete"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
                     android:layout_weight="0.8"
-                    android:layout_marginLeft="10dp"
-                    android:layout_gravity="center"
-                    android:textColor="@color/colorPrimary"
-                    android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+                    android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
                     />
-
 
             </LinearLayout>
 

@@ -26,21 +26,27 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.NativeExpressAdView;
+
+import com.google.android.gms.common.api.Status;
 import com.mobiletemple.photopeople.BottomNavigation.HomePage;
 import com.mobiletemple.photopeople.Network.ConnectivityReceiver;
 import com.mobiletemple.photopeople.Network.MyApplication;
 import com.mobiletemple.photopeople.session.SessionManager;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
-import com.google.android.gms.location.places.ui.PlaceSelectionListener;
+
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteActivity;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 
 public class FilteringActivity extends AppCompatActivity implements ConnectivityReceiver.ConnectivityReceiverListener {
     TextView location, startdate, enddate;
@@ -49,12 +55,13 @@ public class FilteringActivity extends AppCompatActivity implements Connectivity
     RequestQueue requestQueue;
     SessionManager sessionManager;
     String freelancertype, locationstring = "", start_date = "", end_date = "";
-    PlaceAutocompleteFragment places;
     DatePickerDialog datePickerDialog;
     LinearLayout nextButton, linearlayout;
     private long startTime;
     boolean isConnected;
     private AdView mAdView;
+    private static final int AUTOCOMPLETE_REQUEST_CODE = 0;
+    List<Place.Field> fields;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,37 +114,20 @@ public class FilteringActivity extends AppCompatActivity implements Connectivity
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        places = (PlaceAutocompleteFragment)
-                getFragmentManager().findFragmentById(R.id.autocomplete);
+        fields = Arrays.asList(Place.Field.ID, Place.Field.NAME);
+
         location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (!isConnected) {
-                    showSnack(isConnected);
-                } else {
-                    ((View) findViewById(R.id.place_autocomplete_search_input)).performClick();
-                }
+                Intent intent = new Autocomplete.IntentBuilder(
+                        AutocompleteActivityMode.FULLSCREEN, fields)
+                        .build(FilteringActivity.this);
+                startActivityForResult(intent, AUTOCOMPLETE_REQUEST_CODE);
             }
         });
 
-        places.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-            @Override
-            public void onPlaceSelected(Place place) {
 
-                locationstring = place.getAddress().toString();
-                location.setText(locationstring);
-                getLatLong(locationstring);
-
-            }
-
-            @Override
-            public void onError(Status status) {
-
-                Toast.makeText(getApplicationContext(), status.toString(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
 
         startdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -276,7 +266,22 @@ public class FilteringActivity extends AppCompatActivity implements Connectivity
 
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == AUTOCOMPLETE_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+               Place place = Autocomplete.getPlaceFromIntent(data);
+                locationstring=place.getName();
+                location.setText(locationstring);
+                Log.e( "Place: " , place.getAddress() );
+            } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
+                // TODO: Handle the error.
+                Status status = Autocomplete.getStatusFromIntent(data);
+            } else if (resultCode == RESULT_CANCELED) {
+                // The user canceled the operation.
+            }
+        }
+    }
     public void getLatLong(final String youraddress) {
         String uri = "https://maps.google.com/maps/api/geocode/json?key=AIzaSyDPmwsBRxE-EfeyHMpKneTCB19nhsaZDmU&address=" + youraddress + "&sensor=true";
         uri = uri.replaceAll(" ", "%20");

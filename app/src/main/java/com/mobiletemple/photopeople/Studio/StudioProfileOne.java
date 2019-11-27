@@ -29,6 +29,8 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.mobiletemple.photopeople.Freelancer.FreelancerProfileOne;
 import com.mobiletemple.photopeople.Network.ConnectivityReceiver;
 import com.mobiletemple.photopeople.Network.MyApplication;
@@ -39,13 +41,7 @@ import com.mobiletemple.photopeople.session.SessionManager;
 import com.mobiletemple.photopeople.userauth.LoginActivity;
 import com.mobiletemple.photopeople.util.Endpoints;
 import com.mobiletemple.photopeople.util.UIValidation;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlaceAutocomplete;
-import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
-import com.google.android.gms.location.places.ui.PlaceSelectionListener;
+
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -59,14 +55,21 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteActivity;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 
 
 public class StudioProfileOne extends AppCompatActivity  implements ConnectivityReceiver.ConnectivityReceiverListener{
-    PlaceAutocompleteFragment places;
     int PLACE_AUTOCOMPLETE_REQUEST_CODE = 1;
     EditText studionameET,emailET,startpriceET,expNumET;
     TextView location,fullname,mobileno;
@@ -79,6 +82,8 @@ public class StudioProfileOne extends AppCompatActivity  implements Connectivity
     private String userType;
     boolean isConnected;
     String locationstring,namestring,emailidstring,mobilestring,studionamestring,pricestring,expString;
+    List<Place.Field> fields;
+    private static final int AUTOCOMPLETE_REQUEST_CODE = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,47 +101,31 @@ public class StudioProfileOne extends AppCompatActivity  implements Connectivity
         location=findViewById(R.id.location);
         locationll=findViewById(R.id.locationll);
         sessionManager = new SessionManager(getApplicationContext());
-        places= (PlaceAutocompleteFragment)
-                getFragmentManager().findFragmentById(R.id.autocomplete);
-        ((View)findViewById(R.id.place_autocomplete_search_button)).setVisibility(View.GONE);
-        ((View)findViewById(R.id.place_autocomplete_clear_button)).setVisibility(View.GONE);
         namestring=intent.getStringExtra("fname");
         mobilestring=intent.getStringExtra("mobile");
         userType = intent.getStringExtra("userType");
 
         fullname.setText(namestring);
         mobileno.setText(mobilestring);
-
-        locationll.setOnClickListener(new View.OnClickListener() {
+        Places.initialize(getApplicationContext(), "AIzaSyATs_vOy7Qths4ErsfalVYNNjWAoeiiS50");
+        // Create a new Places client instance.
+        PlacesClient placesClient = Places.createClient(this);
+        fields = Arrays.asList(Place.Field.ID, Place.Field.NAME);
+        location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                View view1=  ((View)findViewById(R.id.place_autocomplete_search_input));
-                ((View)findViewById(R.id.place_autocomplete_search_input)).performClick();
+                Intent intent = new Autocomplete.IntentBuilder(
+                        AutocompleteActivityMode.FULLSCREEN, fields)
+                        .build(StudioProfileOne.this);
+                startActivityForResult(intent, AUTOCOMPLETE_REQUEST_CODE);
 
-               }
-        });
-
-        places.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-            @Override
-            public void onPlaceSelected(Place place) {
-
-                locationstring = place.getAddress().toString();
-                location.setText(locationstring);
-                //Log.e("locationstring",locationstring);
-                getLatLong(locationstring);
-
-            }
-
-            @Override
-            public void onError(Status status) {
-
-                Toast.makeText(getApplicationContext(),status.toString(),Toast.LENGTH_SHORT).show();
 
             }
         });
 
 
-nextButton.setOnClickListener(new View.OnClickListener()
+
+        nextButton.setOnClickListener(new View.OnClickListener()
 {
     @Override
     public void onClick(View view) {
@@ -209,7 +198,23 @@ nextButton.setOnClickListener(new View.OnClickListener()
 });
     }
 
-
+  @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == AUTOCOMPLETE_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                Place place = Autocomplete.getPlaceFromIntent(data);
+                locationstring=place.getName();
+                location.setText(locationstring);
+                getLatLong(locationstring);
+                Log.e( "Place: " , place.getAddress() );
+            } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
+                // TODO: Handle the error.
+                Status status = Autocomplete.getStatusFromIntent(data);
+            } else if (resultCode == RESULT_CANCELED) {
+                // The user canceled the operation.
+            }
+        }
+    }
 
     public void getLatLong(final String youraddress)
     {

@@ -162,16 +162,7 @@
                 android:visibility="gone"
                 android:weightSum="1">
 
-                <!--<fragment-->
-                    <!--android:id="@+id/autocomplete"-->
-                    <!--android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"-->
-                    <!--android:layout_width="0dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_gravity="center"-->
-                    <!--android:layout_marginLeft="10dp"-->
-                    <!--android:layout_weight="0.8"-->
-                    <!--android:textColor="@color/colorPrimary"-->
-                    <!--android:textSize="16sp" />-->
+
                 <fragment android:id="@+id/autocomplete"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

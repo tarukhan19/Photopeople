@@ -39,6 +39,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.common.api.Status;
 import com.mobiletemple.photopeople.Network.ConnectivityReceiver;
 import com.mobiletemple.photopeople.Network.MyApplication;
 import com.mobiletemple.photopeople.ProfileExperienceActivity;
@@ -52,10 +53,7 @@ import com.mobiletemple.photopeople.session.SessionManager;
 import com.mobiletemple.photopeople.userauth.LoginActivity;
 import com.mobiletemple.photopeople.util.Endpoints;
 import com.mobiletemple.photopeople.util.UIValidation;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
-import com.google.android.gms.location.places.ui.PlaceSelectionListener;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -64,16 +62,21 @@ import org.json.JSONObject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
-
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteActivity;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 public class FreelancerProfileOne extends AppCompatActivity implements ConnectivityReceiver.ConnectivityReceiverListener {
     private String userType;
     Intent intent;
-    PlaceAutocompleteFragment places;
     Integer ageInt = 0;
     EditText emailET, priceET, expNumET;
     TextView locationTV, fullnameTV, mobilenoTV, dobTV, selectequipment;
@@ -118,7 +121,8 @@ public class FreelancerProfileOne extends AppCompatActivity implements Connectiv
 
     String ph_clickable = "0";
     String vid_clickable = "0";
-
+    List<Place.Field> fields;
+    private static final int AUTOCOMPLETE_REQUEST_CODE = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,10 +132,6 @@ public class FreelancerProfileOne extends AppCompatActivity implements Connectiv
         namestring = intent.getStringExtra("fname");
         mobilestring = intent.getStringExtra("mobile");
 
-        places = (PlaceAutocompleteFragment)
-                getFragmentManager().findFragmentById(R.id.autocomplete);
-        ((View) findViewById(R.id.place_autocomplete_search_button)).setVisibility(View.GONE);
-        ((View) findViewById(R.id.place_autocomplete_clear_button)).setVisibility(View.GONE);
         emailET = findViewById(R.id.emailET);
         priceET = findViewById(R.id.price);
         locationTV = findViewById(R.id.location);
@@ -197,7 +197,9 @@ public class FreelancerProfileOne extends AppCompatActivity implements Connectiv
 
         pricell = findViewById(R.id.pricell);
         sessionManager = new SessionManager(getApplicationContext());
-
+        Places.initialize(getApplicationContext(), "AIzaSyATs_vOy7Qths4ErsfalVYNNjWAoeiiS50");
+        // Create a new Places client instance.
+        PlacesClient placesClient = Places.createClient(this);
 
         cameraLL = findViewById(R.id.cameraLL);
         supportningLL = findViewById(R.id.supportningLL);
@@ -335,35 +337,21 @@ public class FreelancerProfileOne extends AppCompatActivity implements Connectiv
         });
 
 
+        fields = Arrays.asList(Place.Field.ID, Place.Field.NAME);
         locationTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!isConnected) {
-                    showSnack(isConnected);
-                } else {
-                    View view1 = ((View) findViewById(R.id.place_autocomplete_search_input));
-                    ((View) findViewById(R.id.place_autocomplete_search_input)).performClick();
-                }
-            }
-        });
+                Intent intent = new Autocomplete.IntentBuilder(
+                        AutocompleteActivityMode.FULLSCREEN, fields)
+                        .build(FreelancerProfileOne.this);
+                startActivityForResult(intent, AUTOCOMPLETE_REQUEST_CODE);
 
-        places.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-            @Override
-            public void onPlaceSelected(Place place) {
-
-                locationstring = place.getAddress().toString();
-                locationTV.setText(locationstring);
-                getLatLong(locationstring);
-
-            }
-
-            @Override
-            public void onError(Status status) {
-
-                Toast.makeText(getApplicationContext(), status.toString(), Toast.LENGTH_SHORT).show();
 
             }
         });
+
+
+
 
         dobTV.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -936,6 +924,23 @@ public class FreelancerProfileOne extends AppCompatActivity implements Connectiv
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == AUTOCOMPLETE_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                Place place = Autocomplete.getPlaceFromIntent(data);
+                locationstring=place.getName();
+                locationTV.setText(locationstring);
+                getLatLong(locationstring);
+                Log.e( "Place: " , place.getAddress() );
+            } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
+                // TODO: Handle the error.
+                Status status = Autocomplete.getStatusFromIntent(data);
+            } else if (resultCode == RESULT_CANCELED) {
+                // The user canceled the operation.
+            }
+        }
+    }
 
     private void showDateTimePicker(final TextView dobTV) {
         // calender class's instance and get current date , month and year from calender

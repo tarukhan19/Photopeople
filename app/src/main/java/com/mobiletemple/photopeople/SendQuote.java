@@ -12,6 +12,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -31,6 +32,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,10 +47,7 @@ import com.mobiletemple.photopeople.Network.MyApplication;
 import com.mobiletemple.photopeople.session.SessionManager;
 import com.mobiletemple.photopeople.userauth.Users;
 import com.mobiletemple.photopeople.util.Endpoints;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
-import com.google.android.gms.location.places.ui.PlaceSelectionListener;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -58,8 +57,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteActivity;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class SendQuote extends AppCompatActivity implements ConnectivityReceiver.ConnectivityReceiverListener {
@@ -68,7 +73,6 @@ public class SendQuote extends AppCompatActivity implements ConnectivityReceiver
     EditText venue, msg;
     String eventtypestring = "", locationstring = "", start_date = "", end_date = "", priceS = "", venueS = "", msgS = "", shootType,
             freelancerId, selection, from;
-    PlaceAutocompleteFragment places;
     DatePickerDialog datePickerDialog;
     LinearLayout nextButton;
     private long startTime;
@@ -91,9 +95,9 @@ public class SendQuote extends AppCompatActivity implements ConnectivityReceiver
     boolean isConnected;
     DatabaseReference databaseReference;
     private FirebaseAuth mAuth;
+    List<Place.Field> fields;
+    private static final int AUTOCOMPLETE_REQUEST_CODE = 0;
 
-    // LinearLayout malelayout, femalelayout;
-    //  ImageView maleactiveradio, maleinactiveradio, femaleactiveradio, femaleinactiveradio;
     int click = 0;
 
     @Override
@@ -212,40 +216,22 @@ public class SendQuote extends AppCompatActivity implements ConnectivityReceiver
         //Log.e("priceS",priceS);
         price.setText(priceS);
 
-        places = (PlaceAutocompleteFragment)
-                getFragmentManager().findFragmentById(R.id.autocomplete);
+        Places.initialize(getApplicationContext(), "AIzaSyATs_vOy7Qths4ErsfalVYNNjWAoeiiS50");
+        // Create a new Places client instance.
+        PlacesClient placesClient = Places.createClient(this);
+        fields = Arrays.asList(Place.Field.ID, Place.Field.NAME);
         location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Autocomplete.IntentBuilder(
+                        AutocompleteActivityMode.FULLSCREEN, fields)
+                        .build(SendQuote.this);
+                startActivityForResult(intent, AUTOCOMPLETE_REQUEST_CODE);
 
-                if (click == 0) {
-                    View view1 = ((View) findViewById(R.id.place_autocomplete_search_input));
-                    ((View) findViewById(R.id.place_autocomplete_search_input)).performClick();
-                } else {
-                    Toast.makeText(SendQuote.this, "Already selected", Toast.LENGTH_SHORT).show();
-                    locationstring = location.getText().toString();
-                }
-            }
-
-        });
-
-        places.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-            @Override
-            public void onPlaceSelected(Place place) {
-
-                locationstring = place.getAddress().toString();
-                location.setText(locationstring);
-                getLatLong(locationstring);
-
-            }
-
-            @Override
-            public void onError(Status status) {
-
-                Toast.makeText(getApplicationContext(), status.toString(), Toast.LENGTH_SHORT).show();
 
             }
         });
+
 
         startdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -384,6 +370,23 @@ public class SendQuote extends AppCompatActivity implements ConnectivityReceiver
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == AUTOCOMPLETE_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                Place place = Autocomplete.getPlaceFromIntent(data);
+                locationstring=place.getName();
+                location.setText(locationstring);
+                getLatLong(locationstring);
+                Log.e( "Place: " , place.getAddress() );
+            } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
+                // TODO: Handle the error.
+                Status status = Autocomplete.getStatusFromIntent(data);
+            } else if (resultCode == RESULT_CANCELED) {
+                // The user canceled the operation.
+            }
+        }
+    }
     private void sendQuote() {
         dialog.setMessage("Please Wait..");
         dialog.setCancelable(true);

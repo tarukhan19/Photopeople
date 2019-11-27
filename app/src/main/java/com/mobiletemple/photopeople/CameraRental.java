@@ -2,6 +2,7 @@ package com.mobiletemple.photopeople;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,68 +24,66 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
-import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.mobiletemple.photopeople.util.Endpoints;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteActivity;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 
 public class CameraRental extends AppCompatActivity {
     RequestQueue requestQueue;
     ProgressDialog progressDialog;
     double lat,lng;
-
+    List<Place.Field> fields;
+    private static final int AUTOCOMPLETE_REQUEST_CODE = 0;
+    String locationS;
+    TextView locationTV;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera_rental);
         progressDialog = new ProgressDialog(this);
         requestQueue = Volley.newRequestQueue(this);
-
-        PlaceAutocompleteFragment places = (PlaceAutocompleteFragment) getFragmentManager().findFragmentById(R.id.autocomplete);
+        // Initialize Places.
+        Places.initialize(getApplicationContext(), "AIzaSyATs_vOy7Qths4ErsfalVYNNjWAoeiiS50");
+        // Create a new Places client instance.
+        PlacesClient placesClient = Places.createClient(this);
 
         ImageView cross = (ImageView) findViewById(R.id.cross);
         final LinearLayout submit = (LinearLayout) findViewById(R.id.submit);
         final EditText fullname = findViewById(R.id.fullname);
         final EditText mobileno = findViewById(R.id.mobileno);
         LinearLayout location = findViewById(R.id.location);
-        final TextView locationTV = findViewById(R.id.locationTV);
+        locationTV = findViewById(R.id.locationTV);
 
-
+        fields = Arrays.asList(Place.Field.ID, Place.Field.NAME);
         location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Autocomplete.IntentBuilder(
+                        AutocompleteActivityMode.FULLSCREEN, fields)
+                        .build(CameraRental.this);
+                startActivityForResult(intent, AUTOCOMPLETE_REQUEST_CODE);
 
-
-                ((View) findViewById(R.id.place_autocomplete_search_input)).performClick();
 
             }
         });
 
-        places.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-            @Override
-            public void onPlaceSelected(Place place) {
 
-                String locate = place.getAddress().toString();
-                locationTV.setText(locate);
-                getLatLong(locate);
-
-            }
-
-            @Override
-            public void onError(Status status) {
-
-                Toast.makeText(getApplicationContext(), status.toString(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
 
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +91,7 @@ public class CameraRental extends AppCompatActivity {
             public void onClick(View view) {
                 final String fullnameS = fullname.getText().toString();
                 final String mobileNoS = mobileno.getText().toString();
-                final String locationS = locationTV.getText().toString();
+                locationS = locationTV.getText().toString();
 
                 if (fullnameS.isEmpty())
                 {
@@ -126,7 +125,23 @@ public class CameraRental extends AppCompatActivity {
 
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == AUTOCOMPLETE_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                Place place = Autocomplete.getPlaceFromIntent(data);
+                locationS=place.getName();
+                locationTV.setText(locationS);
+                getLatLong(locationS);
+                Log.e( "Place: " , place.getAddress() );
+            } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
+                // TODO: Handle the error.
+                Status status = Autocomplete.getStatusFromIntent(data);
+            } else if (resultCode == RESULT_CANCELED) {
+                // The user canceled the operation.
+            }
+        }
+    }
     private void submitCameraRentalInfo(final String fullnameS, final String mobileNoS, final String locationS)
     {
 

@@ -133,7 +133,6 @@ public class CameraRental extends AppCompatActivity {
                 locationS=place.getName();
                 locationTV.setText(locationS);
                 getLatLong(locationS);
-                Log.e( "Place: " , place.getAddress() );
             } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
                 // TODO: Handle the error.
                 Status status = Autocomplete.getStatusFromIntent(data);

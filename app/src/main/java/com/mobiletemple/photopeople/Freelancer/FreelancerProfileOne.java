@@ -932,7 +932,6 @@ public class FreelancerProfileOne extends AppCompatActivity implements Connectiv
                 locationstring=place.getName();
                 locationTV.setText(locationstring);
                 getLatLong(locationstring);
-                Log.e( "Place: " , place.getAddress() );
             } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
                 // TODO: Handle the error.
                 Status status = Autocomplete.getStatusFromIntent(data);
@@ -1149,6 +1148,8 @@ public class FreelancerProfileOne extends AppCompatActivity implements Connectiv
                             lat = ((JSONArray) jsonObject.get("results")).getJSONObject(0)
                                     .getJSONObject("geometry").getJSONObject("location")
                                     .getDouble("lat");
+                            Log.e("latitude",""+ lat);
+                            Log.e("longitude", ""+lng);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

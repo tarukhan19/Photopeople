@@ -11,6 +11,7 @@ import com.facebook.appevents.AppEventsConstants;
 import com.mobiletemple.photopeople.BottomNavigation.HomePage;
 import com.mobiletemple.photopeople.Freelancer.FreelancerDetails;
 import com.mobiletemple.photopeople.Freelancer.FreelancerProfileOne;
+import com.mobiletemple.photopeople.Studio.StudioProfileOne;
 import com.mobiletemple.photopeople.session.SessionManager;
 import com.mobiletemple.photopeople.userauth.LoginActivity;
 import com.facebook.FacebookSdk;

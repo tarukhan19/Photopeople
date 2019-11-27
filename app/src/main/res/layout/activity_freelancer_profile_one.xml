@@ -135,6 +135,26 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextback"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:visibility="gone"
+                android:weightSum="1">
+
+                <fragment android:id="@+id/autocomplete"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+                    />
+
+
+            </LinearLayout>
 
 
             <LinearLayout
@@ -162,12 +182,7 @@
                     android:textSize="16sp"
 
                     />
-                <fragment android:id="@+id/autocomplete"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.8"
-                    android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
-                    />
+
 
                 <LinearLayout
                     android:layout_width="0dp"

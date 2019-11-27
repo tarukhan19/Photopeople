@@ -206,7 +206,6 @@ public class StudioProfileOne extends AppCompatActivity  implements Connectivity
                 locationstring=place.getName();
                 location.setText(locationstring);
                 getLatLong(locationstring);
-                Log.e( "Place: " , place.getAddress() );
             } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
                 // TODO: Handle the error.
                 Status status = Autocomplete.getStatusFromIntent(data);
@@ -239,8 +238,8 @@ public class StudioProfileOne extends AppCompatActivity  implements Connectivity
                                     .getJSONObject("geometry").getJSONObject("location")
                                     .getDouble("lat");
 
-                            //Log.e("latitude",""+ lat);
-                            //Log.e("longitude", ""+lng);
+                            Log.e("latitude",""+ lat);
+                            Log.e("longitude", ""+lng);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

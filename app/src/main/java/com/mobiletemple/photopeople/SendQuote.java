@@ -378,7 +378,6 @@ public class SendQuote extends AppCompatActivity implements ConnectivityReceiver
                 locationstring=place.getName();
                 location.setText(locationstring);
                 getLatLong(locationstring);
-                Log.e( "Place: " , place.getAddress() );
             } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
                 // TODO: Handle the error.
                 Status status = Autocomplete.getStatusFromIntent(data);

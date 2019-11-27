@@ -273,7 +273,7 @@ public class FilteringActivity extends AppCompatActivity implements Connectivity
                Place place = Autocomplete.getPlaceFromIntent(data);
                 locationstring=place.getName();
                 location.setText(locationstring);
-                Log.e( "Place: " , place.getAddress() );
+                getLatLong(locationstring);
             } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
                 // TODO: Handle the error.
                 Status status = Autocomplete.getStatusFromIntent(data);

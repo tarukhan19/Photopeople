@@ -12,7 +12,8 @@
     android:background="@color/screenback"
     tools:context=".Studio.StudioProfileOne">
     <ScrollView
-        android:layout_width="match_parent" android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:scrollbars="none"
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"

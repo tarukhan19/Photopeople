@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    tools:context="com.mobiletemple.photopeople.ProfileSocialActivity">
+    <include layout="@layout/tootlbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/step"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/profilestepno"
+                    >
+                    <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/white"
+                        />
+                </LinearLayout>
+
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Social Information"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+
+            <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+                android:id="@+id/fullname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Facebook Page"
+                android:layout_gravity="center"
+                android:textSize="16sp"
+                android:singleLine="true"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/gray"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextback"
+                >
+                <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+                    android:id="@+id/fbET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Facebook page url"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:background="@null"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </LinearLayout>
+            <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Website URL"
+                android:layout_gravity="center"
+                android:textSize="16sp"
+                android:singleLine="true"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/gray"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextback"
+                >
+                <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+                    android:id="@+id/webET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Website url"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:background="@null"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </LinearLayout>
+            <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Blog URL"
+                android:layout_gravity="center"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:singleLine="true"
+                android:textColor="@color/gray"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextback"
+                >
+                <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+                    android:id="@+id/blogET"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Blog url"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:background="@null"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </LinearLayout>
+            <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="About Us"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:textSize="16sp"
+                android:singleLine="true"
+                android:textColor="@color/gray"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextback"
+                >
+                <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+                    android:id="@+id/aboutET"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Write here"
+                    android:inputType="textMultiLine"
+                    android:textSize="16sp"
+                    android:gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@null"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/nextBT"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rippleeffect"
+                >
+
+
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                   android:id="@+id/done"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:gravity="center"
+
+                    android:text="Done"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

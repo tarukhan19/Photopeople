@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="10dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_height="wrap_content"
+    >
+
+
+    <LinearLayout
+        android:id="@+id/linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/white"
+
+        android:gravity="center"
+
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@drawable/toolbar_gradcolor"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
+            <LinearLayout
+                android:id="@+id/crossImage"
+                android:background="@drawable/whiteripple"
+                android:layout_width="50dp"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:gravity="start"
+                    android:src="@mipmap/ic_cross"
+                    android:tint="@color/white" />
+            </LinearLayout>
+
+
+
+            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                android:id="@+id/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="Coupon Code"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:layout_gravity="center" />
+
+
+
+        </LinearLayout>
+
+        <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Please enter coupon code"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dimen_20dp"
+
+            android:textSize="@dimen/dimen_16sp"
+            android:textColor="@color/black"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_45dp"
+            android:background="@drawable/edittextback"
+            android:layout_marginLeft="@dimen/dimen_40dp"
+            android:layout_marginRight="@dimen/dimen_40dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            >
+            <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+                android:id="@+id/couponcodeET"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="15sp"
+                android:background="@null"
+                android:hint="Coupon Code"
+                android:paddingLeft="@dimen/dimen_15dp"
+                android:textColor="@color/black"
+                />
+
+
+        </LinearLayout>
+
+
+
+
+
+
+        <LinearLayout
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rippleeffect"
+            >
+
+
+            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:gravity="center"
+
+                android:text="Apply"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

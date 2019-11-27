@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rl"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:background="@color/screenback"
+    tools:context="com.mobiletemple.photopeople.ProfileExperienceActivity">
+    <ScrollView
+        android:layout_width="match_parent" android:scrollbars="none"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/step"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/profilestepno"
+                >
+                <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+            <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Upload Photographs"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:id="@+id/photoUpload"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:layout_marginRight="5dp"
+
+                    android:layout_margin="7dp"
+
+                    android:background="@drawable/curvell_imgback"
+                    >
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:src="@drawable/file_upload_icon" />
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/photoView"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_margin="7dp"
+                    android:scaleType="fitXY"
+                    android:background="@android:color/transparent"
+                    android:scrollbars="horizontal">
+                </android.support.v7.widget.RecyclerView>
+
+
+            </LinearLayout>
+
+
+            <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Upload Videos"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:background="@drawable/edittextback"
+                android:weightSum="1"
+                >
+                <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+                    android:id="@+id/videoET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter your youtube URL"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:background="@null"
+                    android:textColor="@color/colorPrimary"
+                    />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2">
+                <ImageView
+                    android:id="@+id/addVideoIV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/add_more_flp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+            <com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView
+                android:id="@+id/videoLV"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="5dp"
+                android:divider="@null"
+                />
+            <LinearLayout
+                android:id="@+id/nextButton"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:layout_above="@id/ll"
+
+                android:background="@drawable/rippleeffect"
+                >
+
+
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:gravity="center"
+
+                    android:text="Next"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

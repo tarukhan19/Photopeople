@@ -1,0 +1,128 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragment.Freelancer_Imagedetail_frag">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:weightSum="2"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/curvevigimage"
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:id="@+id/picgallery"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/picactive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+
+                android:src="@drawable/photogallery_active_fld"
+                />
+            <ImageView
+                android:id="@+id/picinactive"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:visibility="gone"
+                android:src="@drawable/photogallery_inactive_fld"
+                />
+            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Photo Gallery"
+                android:layout_marginLeft="5dp"
+                android:textSize="10sp"
+                />
+
+        </LinearLayout>
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            />
+
+        <LinearLayout
+            android:id="@+id/vidgallery"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/vidactive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:visibility="gone"
+                android:src="@drawable/video_gallery_active_fld"
+                />
+            <ImageView
+                android:id="@+id/vidinactive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/video_gallery_inactive_fld"
+                />
+            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Video Gallery"
+                android:layout_marginLeft="5dp"
+                android:textSize="10sp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+        android:id="@+id/viewall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="View Full Photo Gallery"
+        android:textSize="10sp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/colorPrimary"
+        />
+
+    <com.mobiletemple.AsymmetricRecyclerView
+        android:id="@+id/picrecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        />
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/vidrecyclerView"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:layout_height="match_parent" />
+
+
+
+
+</LinearLayout>

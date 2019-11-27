@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    android:id="@+id/cardView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="3dp"
+    android:layout_marginRight="3dp"
+    app:cardElevation="2dp"
+    app:cardCornerRadius="3dp"
+
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:gravity="center"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_pic"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="3dp"
+                android:src="@drawable/birthday_default"
+
+                android:scaleType="centerCrop"
+
+                android:layout_marginRight="2dp"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:weightSum="2"
+            android:gravity="start"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+
+            >
+
+            <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:layout_marginBottom="2dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:singleLine="true"
+                android:layout_marginTop="5dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:src="@drawable/age_fl"/>
+
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                    android:id="@+id/age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:text="24"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#727272"
+                    android:textSize="10sp"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:src="@drawable/travel_by_fl"/>
+
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                    android:id="@+id/travelby"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:text="bybus"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#727272"
+                    android:textSize="10sp"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:src="@drawable/camera_fl"/>
+
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                    android:id="@+id/cameratype"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:text="Not Mention"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#727272"
+                    android:textSize="10sp"
+                    />
+
+
+            </LinearLayout>
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    style="@style/customRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="12dp"
+                    android:clickable="false"
+                    android:isIndicator="true"
+                    android:layout_marginBottom="8dp"
+                    />
+
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:layout_gravity="end"
+                android:gravity="end"
+                android:layout_marginRight="8dp"
+                android:orientation="horizontal"
+
+
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/rupi_jd"
+
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    />
+
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    android:text="10k"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/featurell"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+
+                android:orientation="vertical"
+                >
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    android:background="@drawable/featuredfrelanback"
+                    android:textColor="@color/white"
+                    android:text="Featured"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

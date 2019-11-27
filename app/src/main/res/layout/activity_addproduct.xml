@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    tools:context=".BuySell.Addproduct">
+    <include layout="@layout/tootlbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/edittextback">
+
+                <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+                    android:id="@+id/prodnameET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:background="@null"
+                    android:hint="Product Name"
+                    android:inputType="textCapSentences"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/selectprod"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/edittextback"
+                android:weightSum="1"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                    android:id="@+id/prodcat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:hint="Product Category" />
+
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0.2"
+                    android:src="@drawable/drop_down_flp" />
+
+            </LinearLayout>
+
+            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload Photographs"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:id="@+id/photoUpload"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:layout_marginRight="5dp"
+
+                    android:layout_margin="7dp"
+
+                    android:background="@drawable/curvell_imgback"
+                    >
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:src="@drawable/file_upload_icon" />
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/photoView"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_margin="7dp"
+                    android:scaleType="fitXY"
+                    android:background="@android:color/transparent"
+                    android:scrollbars="horizontal">
+                </android.support.v7.widget.RecyclerView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/edittextback">
+
+                <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+                    android:id="@+id/prodpriceET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:background="@null"
+                    android:hint="Product Price"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+                android:id="@+id/desc"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:hint="Description"
+                android:textSize="15sp"
+                android:paddingLeft="20dp"
+                android:gravity="start"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:paddingTop="10dp"
+                android:layout_marginTop="10dp"
+                android:inputType="textMultiLine"
+
+                android:background="@drawable/edittextback"
+                android:typeface="sans" />
+
+            <LinearLayout
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rippleeffect"
+                >
+
+
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:gravity="center"
+
+                    android:text="Submit"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="20dp">
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

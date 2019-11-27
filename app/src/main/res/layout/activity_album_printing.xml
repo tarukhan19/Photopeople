@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    tools:context=".AlbumPrinting.AlbumPrinting">
+    <include layout="@layout/tootlbar" />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical"
+        >
+
+
+    <LinearLayout
+        android:id="@+id/selectprinter"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edittextback"
+        android:weightSum="1"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+
+        <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+            android:id="@+id/printername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:layout_marginLeft="20dp"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/gray"
+            android:hint="Choose Printer" />
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.2"
+            android:src="@drawable/drop_down_flp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/selectpaper"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edittextback"
+        android:weightSum="1"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+
+        <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+            android:id="@+id/papername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:layout_marginLeft="20dp"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/gray"
+            android:hint="Choose Paper" />
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.2"
+            android:src="@drawable/drop_down_flp" />
+
+    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/selectsize"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittextback"
+            android:weightSum="1"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+
+            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                android:id="@+id/size"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:layout_marginLeft="20dp"
+                android:textSize="15sp"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/gray"
+                android:hint="Choose Size" />
+
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="10dp"
+                android:layout_weight="0.2"
+                android:src="@drawable/drop_down_flp" />
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:background="@color/grey"
+        >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/price_label"
+            />
+
+        <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:textSize="18sp"
+            />
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginLeft="30dp"
+
+
+            >
+            <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+                android:id="@+id/amountTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="12sp"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Upload your images to google drive and paste the link here."
+        android:textColor="@color/black"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edittextback"
+
+        android:layout_marginTop="10dp">
+        <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+            android:id="@+id/drivelink"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:inputType="text"
+            android:background="@null"
+            android:maxLines="1"
+            android:hint="Paste Your Link here"
+            android:layout_marginLeft="15dp"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"
+            />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittextback"
+
+            android:layout_marginTop="10dp">
+            <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+                android:id="@+id/sheetquantity"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:inputType="numberDecimal"
+                android:background="@null"
+                android:maxLines="1"
+                android:hint="No. of sheets"
+                android:layout_marginLeft="15dp"
+                android:textSize="15sp"
+                android:textColor="@color/colorPrimary"
+                />
+
+        </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edittextback"
+        >
+        <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Address here..."
+            android:inputType="textMultiLine"
+            android:textSize="16sp"
+            android:gravity="start"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:textColor="@color/colorPrimary"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rippleeffect"
+        >
+
+
+        <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:gravity="center"
+
+            android:text="Submit"/>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+
+
+
+
+</LinearLayout>

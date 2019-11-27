@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    tools:context="com.mobiletemple.photopeople.PaymentDetailActivity">
+    <include layout="@layout/tootlbar" />
+
+    <ScrollView
+        android:layout_width="match_parent" android:scrollbars="none"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextback"
+                >
+                <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+                    android:id="@+id/accountholdername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Account Holder Name"
+                    android:maxLines="1"
+                    android:inputType="textCapSentences"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:background="@null"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextback"
+                >
+                <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+                    android:id="@+id/accountno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Account Number"
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:textSize="16sp"
+
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:background="@null"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextback"
+                >
+                <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+                    android:id="@+id/bankname"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Bank Name"
+                    android:maxLines="1"
+                    android:inputType="textCapSentences"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:background="@null"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextback"
+                >
+                <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+                    android:id="@+id/ifsccode"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="IFSCCode"
+                    android:maxLines="1"
+                    android:inputType="textCapCharacters"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:background="@null"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/nextBT"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rippleeffect"
+                >
+
+
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                    android:id="@+id/done"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:gravity="center"
+
+                    android:text="Save"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/checked_tnc"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

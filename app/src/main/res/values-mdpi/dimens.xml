@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="loginETtop">65dp</dimen>
+    <dimen name="signETtop">65dp</dimen>
+    <dimen name="wmisMT">50dp</dimen>
+    <dimen name="wmifMT">70dp</dimen>
+    <dimen name="recycler_padding">10dp</dimen>
+
+
+</resources>

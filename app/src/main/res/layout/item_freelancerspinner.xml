@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:gravity="center"
+    android:descendantFocusability="blocksDescendants"
+    android:weightSum="1"
+    android:orientation="horizontal">
+    <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+        android:id="@+id/spinnertext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:layout_weight="0.8"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/black"
+        />
+
+
+
+    <!--
+       <LinearLayout
+           android:layout_width="0dp"
+           android:layout_height="match_parent"
+           android:layout_gravity="center"
+           android:gravity="center"
+           android:layout_weight="0.2">
+           <ImageView
+               android:id="@+id/active"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:visibility="gone"
+               android:src="@drawable/radio_active_flp"
+               />
+
+           <ImageView
+               android:id="@+id/inactive"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/radio_inactive_flp" />
+
+       </LinearLayout>
+
+    -->
+    </LinearLayout>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.mobiletemple.photopeople.NotificationActivity">
+    <include layout="@layout/tootlbar" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_above="@id/bottom"
+        android:layout_marginTop="?android:attr/actionBarSize"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/screenback"
+             />
+        <ImageView
+            android:id="@+id/emptylist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/emty_list"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:paddingTop="6dp"
+        android:layout_alignParentBottom="true"
+        android:elevation="10dp"
+        android:background="@drawable/elevation"
+        android:outlineProvider="bounds"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_grey"
+            android:orientation="horizontal"
+            android:weightSum="5"
+
+            android:gravity="center"
+            android:layout_gravity="center"
+            >
+            <LinearLayout
+                android:id="@+id/home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/llrippleefect"
+
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/home"/>
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#727272"
+                    android:textSize="10sp"
+                    android:text="Home"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/chatLL"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/llrippleefect"
+
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:tint="@color/gray"
+                    android:src="@drawable/chat_icon"/>
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#727272"
+                    android:textSize="10sp"
+                    android:text="Chat"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/main"
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/llrippleefect"
+
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="65dp"
+                    android:src="@drawable/center_button"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/timeline"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/llrippleefect"
+
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/wallet"/>
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#727272"
+                    android:textSize="10sp"
+                    android:text="Timeline"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/notification"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/llrippleefect"
+
+                android:layout_gravity="center">
+                <ImageView
+                    android:id="@+id/noti_iv"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:tint="@color/colorPrimary"
+
+                    android:src="@drawable/notification"/>
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                    android:id="@+id/noti_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="10sp"
+                    android:text="Notification"/>
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

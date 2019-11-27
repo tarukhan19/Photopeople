@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">Photopeople</string>
+    <string name="title_activity_registration">RegistrationActivity</string>
+    <string name="permission_rationale">"Permissions are needed for providing email
+        completions."
+    </string>
+    <string name="lorem">Lorem ipsum has become the industry standard</string>
+    <string name="title_activity_home_page">HomePage</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="player_error">Error initializing YouTube player: %s</string>
+    <string name="facebook_app_id">2422389811320492</string>
+
+    <string name="discountmsg">Up to 40% instant discount on your first order</string>
+    <string name="terms">Lorem ipsum has become the industry standard for design mockups and prototypes. By adding a little bit of Latin to a mockup</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="type">
+        <!--<item>Select</item>-->
+        <item>Photographer</item>
+        <item>Videographer</item>
+        <item>Designer</item>
+        <item>Video Editor</item>
+        <item>Live Printing</item>
+
+        <!--<string name="fb_login_protocol_scheme">fb[APP_ID]</string>-->
+
+    </string-array>
+    <string name="title_activity_hired_progress_frag">HiredProgressFrag</string>
+    <string name="title_activity_buy_products">BuyProductsActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="selectcam">Select Camera</string>
+
+    <string name="studiomsg">By registering as a studio you will be able to search and book freelancers.\n
+        \n
+
+You will not be able to take  exposing from others. \n
+\n
+You will be able to take projects from clients.\n
+\n
+You can buy cameras and accessories.\n
+        \n
+You can sell used cameras and equipments.\n
+\n
+You can also print your wedding albums. \n
+\n
+You will get access to other features like photography tips, photography news etc. \n
+        \n
+    </string>
+
+
+    <string name="freelancermsg">
+        By registering as a freelancer you will be able to show your free dates, edit your exposing rates day wise using calendar get booking by other studio users and freelancers.\n
+        \n
+        You can also book other freelancers.\n
+\n
+You can buy cameras and accessories, you can sell used cameras and equipments.\n
+\n
+You can also print your wedding albums.\n
+\n
+As a freelancer, you can not take direct order from clients.\n
+\n
+You will get access to other features like photography tips, photography related news etc.\n
+    </string>
+    <string name="channel_name">channel</string>
+
+
+    <string name="title_activity_home_screen">HomeScreenActivity</string>
+
+    <string name="youAreNotUpdatedTitle">Update Available</string>
+    <string name="youAreNotUpdatedMessage">A new version of Photo People is available. Please update to version\s</string>
+    <string name="youAreNotUpdatedMessage1">\s now</string>
+    <string name="update">Update</string>
+</resources>

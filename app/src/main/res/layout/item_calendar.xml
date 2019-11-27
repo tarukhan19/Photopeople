@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/curvelinearlayout"
+        android:orientation="vertical"
+        >
+
+
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/dateback"
+            >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="10dp"
+
+                android:src="@drawable/calender_icon"/>
+
+            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                android:id="@+id/dateLBL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="12 March 2018"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/occupyLBL"
+
+            android:layout_width="250dp"
+            android:background="@drawable/rippleeffect"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="45dp">
+
+
+
+            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+
+                android:text="Already Occupied"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="18sp"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cancelLBL"
+
+            android:layout_width="250dp"
+            android:background="@drawable/rippleeffect"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:gravity="center"
+            android:layout_height="45dp">
+
+
+
+            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+
+                android:text="Cancel Entry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="18sp"
+
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:background="@drawable/budgetback"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"
+
+            android:layout_height="45dp">
+
+
+
+            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                android:id="@+id/budgetLBL"
+                android:text="Budget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#2b2b2b"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="18sp"
+
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/crossIV"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/carback"
+        android:src="@drawable/cross_popup_cal"
+        android:layout_marginTop="-20dp"
+        />
+</LinearLayout>

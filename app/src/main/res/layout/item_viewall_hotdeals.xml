@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.v7.widget.CardView
+    android:id="@+id/cardView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_marginLeft="10dp"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:layout_weight="0.3"
+                android:background="@drawable/hotdeals"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:layout_gravity="end"
+
+
+                android:gravity="end"
+                >
+
+                <LinearLayout
+                    android:id="@+id/share"
+                    android:layout_marginTop="2dp"
+                    android:layout_width="wrap_content"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/share_app_mp"
+                        android:tint="@color/colorPrimary"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        />
+
+                    <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Share"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:textSize="10sp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BEST OFFER" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:weightSum="1">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:layout_gravity="center"
+
+
+                android:layout_weight="0.2">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_pic"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/default_fl_list"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="@color/gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginRight="10dp"
+                android:layout_weight="0.8">
+
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                    android:id="@+id/studioname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp"
+                    android:text="John Studio" />
+                <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+                    android:id="@+id/discountmsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:text="Up to 40% instant discount on your first order" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="Price:" />
+
+                    <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/gray"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="12sp"
+                        android:text="" />
+
+
+                </LinearLayout>
+                <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                    android:id="@+id/termscondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gray"
+                    android:layout_marginTop="5dp"
+                    android:textSize="10sp"
+                    android:text="Lorem ipsum has become the industry standard for design mockups and prototypes." />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"></LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

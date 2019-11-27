@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.CenterFragment">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+       >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/my_profile_gradient"
+       >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/top_banner_myprofile"
+                        android:scaleType="centerCrop"
+                        />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/iv_pic"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="120dp"
+                        android:gravity="center"
+                        android:src="@drawable/default_fl_list"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/iv_pic"
+                        android:layout_alignRight="@+id/iv_pic"
+                        android:layout_alignTop="@+id/iv_pic"
+                        android:layout_marginTop="14dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/edit_profile" />
+
+                </RelativeLayout>
+                <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="20sp"
+                    android:text="Home"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:weightSum="4">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/calendar"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:elevation="3dp"
+                            android:layout_margin="5dp"
+
+                            android:background="@drawable/profile_itemback"
+                            >
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/calender_mp"
+                                android:tint="@color/white"/>
+
+                            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:text="Calendar"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/contactus"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_margin="5dp"
+                            android:elevation="3dp"
+
+                            android:background="@drawable/profile_itemback"
+                            >
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/mobile_number"
+                                android:tint="@color/white"/>
+
+                            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:text="Contact Us"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/myprofile"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_margin="5dp"
+                            android:elevation="3dp"
+
+                            android:background="@drawable/profile_itemback">
+
+                            <ImageView
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:src="@drawable/my_profile_mp"
+                                android:tint="@color/white"/>
+
+                            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:text="My Profile"/>
+
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/editprofile"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/profile_itemback"
+                            android:elevation="3dp"
+                            android:gravity="center"
+
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:src="@drawable/edit_profile_mp" />
+
+                            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="Edit Profile"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/project"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/profile_itemback"
+                            android:elevation="3dp"
+                            android:gravity="center"
+
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/my_job_mp"
+                                android:tint="@color/white" />
+
+                            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="Project"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/shareapp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/profile_itemback"
+                            android:elevation="3dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/share_app_mp"
+                                android:tint="@color/white" />
+
+                            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="Share App"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/shopzone"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_margin="5dp"
+                            android:elevation="3dp"
+
+                            android:background="@drawable/profile_itemback">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/shop_zone_mp"
+                                android:tint="@color/white"/>
+
+                            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:text="Shop Zone"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/albumprint"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_margin="5dp"
+                            android:elevation="3dp"
+                            android:background="@drawable/profile_itemback"
+                            >
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/album_print_mp"
+                                android:tint="@color/white"/>
+
+                            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:text="Album Print"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/wallet"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/profile_itemback"
+                            android:elevation="3dp"
+
+                            >
+
+                            <ImageView
+                                android:id="@+id/walletiv"
+                                android:layout_width="35dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/wallet"
+                                android:layout_gravity="center"
+                                android:tint="@color/white"/>
+
+                            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:text="Wallet"/>
+
+
+                        </LinearLayout>
+
+
+
+
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        >
+                        <LinearLayout
+                            android:id="@+id/logout"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/profile_itemback"
+                            android:elevation="3dp"
+
+                            >
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/logout_mp"
+                                android:layout_gravity="center"
+                                android:tint="@color/white"/>
+
+                            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:text="Logout"/>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+    </RelativeLayout>
+
+</layout>

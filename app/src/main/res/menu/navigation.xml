@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home"
+        android:title="@string/title_home"
+       />
+
+    <item
+        android:id="@+id/navigation_chat"
+        android:icon="@mipmap/ic_chat"
+        android:title="Chat"
+       />
+
+    <item
+        android:id="@+id/navigation_center"
+        android:icon="@drawable/center_button"
+        android:title="Dashboard"
+        />
+
+
+    <item
+        android:id="@+id/navigation_timeline"
+        android:icon="@mipmap/ic_timeline"
+        android:title="Timeline"
+      />
+
+    <item
+        android:id="@+id/navigation_notify"
+        android:icon="@drawable/notification"
+        android:title="Notification"
+        />
+
+
+</menu>

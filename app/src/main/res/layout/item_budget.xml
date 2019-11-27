@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/curvelinearlayout"
+    android:orientation="vertical"
+    >
+
+
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/dateback"
+        >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="10dp"
+
+            android:src="@drawable/calender_icon"/>
+
+        <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+            android:id="@+id/dateLBL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="12 March 2018"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:id="@+id/personalLL"
+        android:background="@drawable/edittextback"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="45dp">
+
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/rupi"/>
+
+        <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+            android:id="@+id/budgetET"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:inputType="number"
+            android:singleLine="true"
+            android:background="@null"
+            />
+
+    </LinearLayout>
+
+    <com.mobiletemple.photopeople.customStyle.ButtonLailaregular
+        android:id="@+id/okBT"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Done"
+        android:textSize="18dp"
+        android:textAllCaps="false"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/rippleeffect"
+        android:textColor="@color/white"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+
+    </LinearLayout>
+</LinearLayout>
+
+    <ImageView
+        android:id="@+id/crossIV"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/carback"
+        android:layout_marginTop="-20dp"
+        android:src="@drawable/cross_popup_cal"
+        />
+</LinearLayout>

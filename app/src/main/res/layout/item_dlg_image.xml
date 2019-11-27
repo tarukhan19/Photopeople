@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="10dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/toolbar_gradcolor"
+            android:weightSum="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <com.mobiletemple.photopeople.customStyle.TextViewLailasemibold
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Select Option"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_weight="0.9"
+                />
+
+            <ImageView
+                android:id="@+id/crossIV"
+                android:layout_width="0dp"
+                android:layout_height="15dp"
+                android:tint="@color/white"
+
+                android:layout_gravity="center"
+                android:layout_weight="0.1"
+                android:src="@drawable/cross_popup"
+                />
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:id="@+id/cameratypeLL"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/edittextback"
+            android:orientation="horizontal">
+
+
+
+            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                android:id="@+id/gallLBL"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:hint="Gallery" />
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cameLL"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/edittextback"
+            android:orientation="horizontal">
+
+
+
+            <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+                android:id="@+id/cameraLBL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:hint="Camera" />
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="20dp">
+
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "576648249167",
+    "firebase_url": "https://photopeople-189611.firebaseio.com",
+    "project_id": "photopeople-189611",
+    "storage_bucket": "photopeople-189611.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576648249167:android:4aaa6e302759b861",
+        "android_client_info": {
+          "package_name": "com.mobiletemple.photopeople"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "576648249167-np8qkha5mpnqpf67kgi3sivc3239ic44.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobiletemple.photopeople",
+            "certificate_hash": "e7057cd06dd9987596c55924e0b77cac7f63b0be"
+          }
+        },
+        {
+          "client_id": "576648249167-2se817hus2djdh0gf5vad9q42u86cm3a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSO3-BDggTmiclNqJYUHxTZMymjSJu8Iw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "576648249167-2se817hus2djdh0gf5vad9q42u86cm3a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

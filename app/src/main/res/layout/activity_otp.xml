@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/screenback"
+    tools:context=".userauth.OtpActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/backIV"
+
+            android:layout_width="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/ic_back"
+                android:tint="@color/black"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:textSize="25sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/wmitext"
+        android:text="OTP Verification"/>
+
+
+    <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="We have sent OTP to your"/>
+
+    <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="Registered Number"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center">
+
+        <com.mobiletemple.photopeople.customStyle.EdittextLailaregular
+        android:id="@+id/ET"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:hint="Enter OTP"
+            android:background="@color/white"
+        android:textColor="@color/wmitext"
+        android:inputType="number"
+        android:gravity="center"/>
+
+        <!--<com.mobiletemple.photopeople.customStyle.EdittextLailaregular-->
+            <!--android:id="@+id/ET1"-->
+            <!--android:layout_width="60dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:background="@drawable/otpcicle"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_margin="5dp"-->
+            <!--android:textColor="@color/wmitext"-->
+            <!--android:inputType="number"-->
+            <!--android:gravity="center"/>-->
+        <!--<com.mobiletemple.photopeople.customStyle.EdittextLailaregular-->
+            <!--android:id="@+id/ET2"-->
+            <!--android:layout_width="60dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:background="@drawable/otpcicle"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:textColor="@color/wmitext"-->
+            <!--android:inputType="number"-->
+            <!--android:layout_margin="5dp"-->
+
+            <!--android:gravity="center"/>-->
+        <!--<com.mobiletemple.photopeople.customStyle.EdittextLailaregular-->
+            <!--android:id="@+id/ET3"-->
+            <!--android:layout_width="60dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:background="@drawable/otpcicle"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_margin="5dp"-->
+            <!--android:textColor="@color/wmitext"-->
+            <!--android:inputType="number"-->
+            <!--android:gravity="center"/>-->
+        <!--<com.mobiletemple.photopeople.customStyle.EdittextLailaregular-->
+            <!--android:id="@+id/ET4"-->
+            <!--android:layout_width="60dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:background="@drawable/otpcicle"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_margin="5dp"-->
+            <!--android:textColor="@color/wmitext"-->
+            <!--android:inputType="number"-->
+            <!--android:gravity="center"/>-->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/verify"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rippleeffect"
+        >
+
+
+        <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:gravity="center"
+
+            android:text="Verify"/>
+    </LinearLayout>
+
+    <com.mobiletemple.photopeople.customStyle.TextViewLailaregular
+        android:id="@+id/resend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:gravity="center"
+
+        android:text="Resend"/>
+    <View
+        android:layout_width="55dp"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        android:layout_gravity="center"/>
+</LinearLayout>

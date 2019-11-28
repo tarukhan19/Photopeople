@@ -74,6 +74,10 @@ public class FilteringActivity extends AppCompatActivity implements Connectivity
         LinearLayout filter = (LinearLayout) toolbar.findViewById(R.id.filter);
         MobileAds.initialize(this, "ca-app-pub-1234961524965105~5671037383");
 
+        // Initialize Places.
+        Places.initialize(getApplicationContext(), "AIzaSyATs_vOy7Qths4ErsfalVYNNjWAoeiiS50");
+        // Create a new Places client instance.
+        PlacesClient placesClient = Places.createClient(this);
 
         mTitle.setText("Filter");
         filter.setVisibility(View.INVISIBLE);

@@ -117,75 +117,74 @@ public class RegistrationActivity extends AppCompatActivity  implements Connecti
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                fullname=fullnameET.getText().toString();
-//                mobileno=mobilenoET.getText().toString();
-//                password=passwordET.getText().toString();
-//                confpassword=confpasswordET.getText().toString();
-//                countrycode=  codePicker.getSelectedCountryCodeWithPlus();
-//                Log.e("country code",countrycode);
-//
-//                boolean isValidate = true;
-//
-//                fullname = fullnameET.getText().toString();
-//                String fnameValidateMSG = UIValidation.nameValidate(fullname, true);
-//                //Log.e("FName Val", fnameValidateMSG);
-//                if (!fnameValidateMSG.equalsIgnoreCase(UIValidation.SUCCESS)) {
-//                    fullnameET.setError(fnameValidateMSG);
-//                    isValidate = false;
-//                }
-//                mobileno = mobilenoET.getText().toString();
-//                String mobileValidateMSG = UIValidation.mobileValidate(mobileno, true);
-//                //Log.e("MOB Val", mobileValidateMSG);
-//                if (!mobileValidateMSG.equalsIgnoreCase(UIValidation.SUCCESS)) {
-//                    mobilenoET.setError(mobileValidateMSG);
-//                    isValidate = false;
-//                }
-//
-//
-//                //Log.e("MOB Val", mobileValidateMSG);
-//                if (countrycode.isEmpty())  {
-//                    Toast.makeText(RegistrationActivity.this, "Country code required", Toast.LENGTH_SHORT).show();
-//                    isValidate = false;
-//                }
-//
-//                password = passwordET.getText().toString();
-//                String passwordValidateMSG = UIValidation.passwordValidate(password, true);
-//                //Log.e("Pass Val", passwordValidateMSG);
-//                if (!passwordValidateMSG.equalsIgnoreCase(UIValidation.SUCCESS)) {
-//                    passwordET.setError(passwordValidateMSG);
-//                    isValidate = false;
-//                }
-//
-//                confpassword = confpasswordET.getText().toString();
-//                String cpasswordValidateMSG = UIValidation.passwordValidate(confpassword, true);
-//                //Log.e("CPass Val", cpasswordValidateMSG);
-//                if (!cpasswordValidateMSG.equalsIgnoreCase(UIValidation.SUCCESS)) {
-//                    confpasswordET.setError(cpasswordValidateMSG);
-//                    isValidate = false;
-//                }
-//
-//                if (!confpassword.equals(password)) {
-//                    confpasswordET.setError("Password Not Match !");
-//                    isValidate = false;
-//                }
-//
-//
-//
-//                if (isValidate)
-//                {
-//                    if (!isConnected)
-//                    {
-//                        showSnack(isConnected);
-//                    }
-//                    else
-//                    {
-//
-//                        OtpTask task = new OtpTask();
-//                        task.execute(mobileno);
-//                    }
-//                }
-                createeReq task = new createeReq();
-                        task.execute();
+                fullname=fullnameET.getText().toString();
+                mobileno=mobilenoET.getText().toString();
+                password=passwordET.getText().toString();
+                confpassword=confpasswordET.getText().toString();
+                countrycode=  codePicker.getSelectedCountryCodeWithPlus();
+                Log.e("country code",countrycode);
+
+                boolean isValidate = true;
+
+                fullname = fullnameET.getText().toString();
+                String fnameValidateMSG = UIValidation.nameValidate(fullname, true);
+                //Log.e("FName Val", fnameValidateMSG);
+                if (!fnameValidateMSG.equalsIgnoreCase(UIValidation.SUCCESS)) {
+                    fullnameET.setError(fnameValidateMSG);
+                    isValidate = false;
+                }
+                mobileno = mobilenoET.getText().toString();
+                String mobileValidateMSG = UIValidation.mobileValidate(mobileno, true);
+                //Log.e("MOB Val", mobileValidateMSG);
+                if (!mobileValidateMSG.equalsIgnoreCase(UIValidation.SUCCESS)) {
+                    mobilenoET.setError(mobileValidateMSG);
+                    isValidate = false;
+                }
+
+
+                //Log.e("MOB Val", mobileValidateMSG);
+                if (countrycode.isEmpty())  {
+                    Toast.makeText(RegistrationActivity.this, "Country code required", Toast.LENGTH_SHORT).show();
+                    isValidate = false;
+                }
+
+                password = passwordET.getText().toString();
+                String passwordValidateMSG = UIValidation.passwordValidate(password, true);
+                //Log.e("Pass Val", passwordValidateMSG);
+                if (!passwordValidateMSG.equalsIgnoreCase(UIValidation.SUCCESS)) {
+                    passwordET.setError(passwordValidateMSG);
+                    isValidate = false;
+                }
+
+                confpassword = confpasswordET.getText().toString();
+                String cpasswordValidateMSG = UIValidation.passwordValidate(confpassword, true);
+                //Log.e("CPass Val", cpasswordValidateMSG);
+                if (!cpasswordValidateMSG.equalsIgnoreCase(UIValidation.SUCCESS)) {
+                    confpasswordET.setError(cpasswordValidateMSG);
+                    isValidate = false;
+                }
+
+                if (!confpassword.equals(password)) {
+                    confpasswordET.setError("Password Not Match !");
+                    isValidate = false;
+                }
+
+
+
+                if (isValidate)
+                {
+                    if (!isConnected)
+                    {
+                        showSnack(isConnected);
+                    }
+                    else
+                    {
+
+                        OtpTask task = new OtpTask();
+                        task.execute(mobileno);
+                    }
+                }
+
             }
         });
 
@@ -529,67 +528,6 @@ public class RegistrationActivity extends AppCompatActivity  implements Connecti
 
 
 
-    private class createeReq extends AsyncTask<String, Void, String>
-    {
-
-        @Override
-        protected void onPreExecute() {
-
-            pd.setMessage("loading..");
-            pd.setCancelable(false);
-            pd.show();
-            super.onPreExecute();
-        }
-
-        @Override
-        protected String doInBackground(String... strings) {
-            Endpoints comm = new Endpoints();
-
-            try {
-
-
-                if (profilePic != null) {
-                    String str = getStringFromBitmap(profilePic);
-                    profilePicbyte = android.util.Base64.decode(str, android.util.Base64.NO_WRAP);
-                }
-
-
-
-                String result = comm.forProdPost("http://eventdesire.com/event/webservice/Registration/sample_image_upload", profilePicbyte);
-                Log.e("result", result);
-                return result;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return e.getMessage();
-            }
-
-            //  return null;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            Log.e("UPLOAD_PROFILE_IMAGEResponce", "" + s);
-            pd.cancel();
-            pd.dismiss();
-            try {
-                if (s != null) {
-
-
-                    JSONObject obj = new JSONObject(s);
-                    int status = obj.getInt("status");
-                    String message = obj.getString("message");
-
-                    if (status == 200 && message.equalsIgnoreCase("success")) {
-
-
-                    }
-
-                }
-            } catch (Exception ex) {
-            }
-        }
-
-    }
 
 
     public static String getStringFromBitmap(Bitmap bm)

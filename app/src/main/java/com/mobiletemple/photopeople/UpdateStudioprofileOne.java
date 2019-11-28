@@ -207,7 +207,6 @@ public class UpdateStudioprofileOne extends AppCompatActivity  implements Connec
                 locationstring=place.getName();
                 location.setText(locationstring);
                 getLatLong(locationstring);
-                Log.e( "Place: " , place.getAddress() );
             } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
                 // TODO: Handle the error.
                 Status status = Autocomplete.getStatusFromIntent(data);

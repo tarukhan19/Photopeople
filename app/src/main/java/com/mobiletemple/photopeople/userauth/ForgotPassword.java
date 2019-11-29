@@ -3,8 +3,7 @@ package com.mobiletemple.photopeople.userauth;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
@@ -22,6 +21,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.snackbar.Snackbar;
 import com.hbb20.CountryCodePicker;
 import com.mobiletemple.photopeople.Network.ConnectivityReceiver;
 import com.mobiletemple.photopeople.Network.MyApplication;
@@ -176,7 +176,7 @@ String mobileS,countrycodeS;
                 .make(findViewById(R.id.ll), message, Snackbar.LENGTH_LONG);
 
         View sbView = snackbar.getView();
-        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+        TextView textView = (TextView) sbView.findViewById(R.id.snackbar_text);
         textView.setTextColor(color);
         snackbar.show();
     }

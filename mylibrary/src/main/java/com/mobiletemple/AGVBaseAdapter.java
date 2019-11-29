@@ -1,7 +1,8 @@
 package com.mobiletemple;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 interface AGVBaseAdapter<T extends RecyclerView.ViewHolder> {
   int getActualItemCount();

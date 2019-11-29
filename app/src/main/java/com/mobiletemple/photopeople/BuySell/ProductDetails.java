@@ -8,13 +8,13 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -37,10 +37,10 @@ import com.android.volley.toolbox.Volley;
 import com.facebook.login.Login;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
 import com.mobiletemple.photopeople.BottomNavigation.HomePage;
-import com.mobiletemple.photopeople.Freelancer.FreelancerDetails;
 import com.mobiletemple.photopeople.Network.ConnectivityReceiver;
 import com.mobiletemple.photopeople.Network.MyApplication;
 import com.mobiletemple.photopeople.PayuMoneyIntegration.ProdPurchaseActivity;
@@ -839,7 +839,7 @@ public class ProductDetails extends AppCompatActivity implements ConnectivityRec
                 .make(findViewById(R.id.rl), message, Snackbar.LENGTH_LONG);
 
         View sbView = snackbar.getView();
-        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+        TextView textView = (TextView) sbView.findViewById(R.id.snackbar_text);
         textView.setTextColor(color);
         snackbar.show();
     }

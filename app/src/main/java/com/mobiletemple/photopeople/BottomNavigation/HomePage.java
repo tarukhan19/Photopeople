@@ -1,31 +1,47 @@
 package com.mobiletemple.photopeople.BottomNavigation;
 
 import android.annotation.TargetApi;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
+import android.content.pm.PackageManager;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import android.graphics.PorterDuff;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.design.internal.BottomNavigationItemView;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+
+import androidx.fragment.app.Fragment;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
+import com.mobiletemple.photopeople.BuildConfig;
 import com.mobiletemple.photopeople.ChatNotification.Token;
 import com.mobiletemple.photopeople.R;
 import com.mobiletemple.photopeople.TimeLine.TimelineFragment;
 import com.mobiletemple.photopeople.databinding.ActivityHomeScreenBinding;
 import com.mobiletemple.photopeople.session.SessionManager;
+
+import java.util.HashMap;
 
 public class HomePage extends AppCompatActivity {
 
@@ -39,6 +55,10 @@ public class HomePage extends AppCompatActivity {
     SessionManager sessionManager;
     static HomePage homeActivity;
 
+    private FirebaseRemoteConfig mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
+    private HashMap<String, Object> firebaseDefaultMap;
+    public static final String VERSION_CODE_KEY = "force_update_current_version";
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +66,6 @@ public class HomePage extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home_screen);
 
         binding.navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        BottomNavigationViewHelper.disableShiftMode(binding.navigation);
         sessionManager = new SessionManager(this);
         homeActivity = this;
 
@@ -101,6 +120,36 @@ public class HomePage extends AppCompatActivity {
         }
         uodateToken(FirebaseInstanceId.getInstance().getToken());
         setNotiIcon(sessionManager.getNotificationCount());
+
+
+
+
+
+        firebaseDefaultMap = new HashMap<>();
+        //Setting the Default Map Value with the current version code
+        firebaseDefaultMap.put(VERSION_CODE_KEY, getCurrentVersionCode());
+
+        //Setting that default Map to Firebase Remote Config
+        mFirebaseRemoteConfig.setDefaults(firebaseDefaultMap);
+
+        //Setting Developer Mode enabled to fast retrieve the values
+        mFirebaseRemoteConfig.setConfigSettings(
+                new FirebaseRemoteConfigSettings.Builder().setDeveloperModeEnabled(BuildConfig.DEBUG)
+                        .build());
+
+        //Fetching the values here
+        mFirebaseRemoteConfig.fetch().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    mFirebaseRemoteConfig.activateFetched();
+                    Log.d(TAG, "Fetched value: " + mFirebaseRemoteConfig.getString(VERSION_CODE_KEY));
+                    //calling function to check if new version is available or not
+                    checkForUpdate();
+                }else
+                    Toast.makeText(HomePage.this,"Someting went wrong please try again",Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }
@@ -269,5 +318,34 @@ public class HomePage extends AppCompatActivity {
         super.onResume();
     }
 
+    private int getCurrentVersionCode() {
+        try {
+            return getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
 
+    private void checkForUpdate() {
+        int latestAppVersion = (int) mFirebaseRemoteConfig.getDouble(VERSION_CODE_KEY);
+
+        if (latestAppVersion > getCurrentVersionCode()) {
+            new AlertDialog.Builder(this).setTitle("Please Update the App")
+                    .setMessage("A new version of this app is available. Please update it").setPositiveButton(
+                    "OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            final String appPackageName = getPackageName(); // package name of the app
+                            try {
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                            } catch (android.content.ActivityNotFoundException anfe) {
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                            }
+
+                        }
+                    }).setCancelable(false).show();
+        } else {
+        }
+    }
 }

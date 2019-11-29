@@ -3,22 +3,21 @@ package com.mobiletemple.photopeople.BuySell;
 
 import android.app.ProgressDialog;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -28,12 +27,9 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.mobiletemple.photopeople.Network.ConnectivityReceiver;
-import com.mobiletemple.photopeople.Network.MyApplication;
 import com.mobiletemple.photopeople.R;
 import com.mobiletemple.photopeople.adapter.BuyNewprodAdapter;
 import com.mobiletemple.photopeople.model.BuyNewProdDTO;
-import com.mobiletemple.photopeople.model.MyProductDTO;
 import com.mobiletemple.photopeople.session.SessionManager;
 import com.mobiletemple.photopeople.util.Endpoints;
 

@@ -1,6 +1,7 @@
 package com.mobiletemple;
 
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 public abstract class AGVRecyclerViewAdapter<VH extends RecyclerView.ViewHolder>
     extends RecyclerView.Adapter<VH> {

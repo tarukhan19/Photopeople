@@ -8,7 +8,7 @@
     android:focusableInTouchMode="true"
     tools:context="com.mobiletemple.photopeople.UpdateFreelancerProfileOne">
     <include layout="@layout/tootlbar" />
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="55dp"
         app:cardUseCompatPadding="true"
@@ -49,8 +49,8 @@
         </LinearLayout>
 
 
-    </android.support.v7.widget.CardView>
-    <android.support.v7.widget.CardView
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="55dp"
         app:cardUseCompatPadding="true"
@@ -84,6 +84,6 @@
                 android:src="@mipmap/arrow"/>
 
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

@@ -1,7 +1,8 @@
 package com.mobiletemple;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 public class AsymmetricViewHolder<VH extends RecyclerView.ViewHolder>
     extends RecyclerView.ViewHolder {

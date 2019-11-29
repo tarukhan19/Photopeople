@@ -1,12 +1,14 @@
 package com.mobiletemple;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewTreeObserver;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class AsymmetricRecyclerView extends RecyclerView implements AsymmetricView {
   private final AsymmetricViewImpl viewImpl;
@@ -15,7 +17,7 @@ public class AsymmetricRecyclerView extends RecyclerView implements AsymmetricVi
   public AsymmetricRecyclerView(Context context, AttributeSet attrs) {
     super(context, attrs);
     viewImpl = new AsymmetricViewImpl(context);
-    setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+    setLayoutManager(new LinearLayoutManager(context, RecyclerView.VERTICAL, false));
 
     final ViewTreeObserver vto = getViewTreeObserver();
     if (vto != null) {

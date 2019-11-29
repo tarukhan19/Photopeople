@@ -2,7 +2,7 @@ package com.mobiletemple.photopeople.Network;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,25 +24,6 @@ public class MyApplication extends Application {
     public void onCreate()
     {
         super.onCreate();
-
-//        final FirebaseRemoteConfig remoteConfig=FirebaseRemoteConfig.getInstance();
-//
-//        Map<String,Object> defaultvalue=new HashMap<>();
-//        defaultvalue.put(UpdateHelper.KEY_UPDATE_ENABLE,false);
-//        defaultvalue.put(UpdateHelper.KEY_UPDATE_VERSION,"17.8");
-//        defaultvalue.put(UpdateHelper.KEY_UPDATE_URL,"https://play.google.com/store/apps/details?id=com.mobiletemple.photopeople&hl=en");
-//
-//        remoteConfig.setDefaults(defaultvalue);
-//        remoteConfig.fetch(1000).addOnCompleteListener(new OnCompleteListener<Void>() {
-//            @Override
-//            public void onComplete(@NonNull Task<Void> task) {
-//            if (task.isSuccessful())
-//            {
-//                remoteConfig.activateFetched();
-//
-//            }
-//            }
-//        });
 
         initImageLoader(getApplicationContext());
 

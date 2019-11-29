@@ -6,11 +6,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -20,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.mobiletemple.photopeople.BottomNavigation.HomePage;
 import com.mobiletemple.photopeople.Network.ConnectivityReceiver;
 import com.mobiletemple.photopeople.Network.MyApplication;
@@ -44,7 +46,7 @@ import java.util.Set;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class CalenderActivity extends AppCompatActivity  implements ConnectivityReceiver.ConnectivityReceiverListener{
+public class CalenderActivity extends AppCompatActivity implements ConnectivityReceiver.ConnectivityReceiverListener{
     MaterialCalendarView calendarVW;
     SessionManager sessionManager;
     private HashMap<String,CalendarData> calendarDataList;
@@ -578,7 +580,7 @@ public class CalenderActivity extends AppCompatActivity  implements Connectivity
                 .make(findViewById(R.id.ll), message, Snackbar.LENGTH_LONG);
 
         View sbView = snackbar.getView();
-        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+        TextView textView = (TextView) sbView.findViewById(R.id.snackbar_text);
         textView.setTextColor(color);
         snackbar.show();
     }

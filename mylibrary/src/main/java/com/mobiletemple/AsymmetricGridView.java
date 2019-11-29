@@ -2,13 +2,14 @@ package com.mobiletemple;
 
 import android.content.Context;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import androidx.annotation.NonNull;
 
 public class AsymmetricGridView extends ListView implements AsymmetricView {
   protected AdapterView.OnItemClickListener onItemClickListener;

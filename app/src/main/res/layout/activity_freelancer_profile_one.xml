@@ -903,7 +903,7 @@
                 </FrameLayout>
             </LinearLayout>
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/lensrecycle"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -916,7 +916,7 @@
                 android:background="@android:color/transparent"
                 android:scrollbars="none">
 
-            </android.support.v7.widget.RecyclerView>
+            </androidx.recyclerview.widget.RecyclerView>
 
 
             <LinearLayout
@@ -958,7 +958,7 @@
                 </FrameLayout>
             </LinearLayout>
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/lightningrecycle"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -972,7 +972,7 @@
                 android:background="@android:color/transparent"
                 android:scrollbars="none">
 
-            </android.support.v7.widget.RecyclerView>
+            </androidx.recyclerview.widget.RecyclerView>
 
 
 
@@ -1018,7 +1018,7 @@
             </LinearLayout>
 
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/supportrecycle"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -1032,7 +1032,7 @@
                 android:background="@android:color/transparent"
                 android:scrollbars="none">
 
-            </android.support.v7.widget.RecyclerView>
+            </androidx.recyclerview.widget.RecyclerView>
 
 
 

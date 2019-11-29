@@ -1,8 +1,9 @@
 package com.mobiletemple;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 public final class AsymmetricRecyclerViewAdapter<T extends RecyclerView.ViewHolder>
     extends RecyclerView.Adapter<AdapterImpl.ViewHolder> implements AGVBaseAdapter<T> {

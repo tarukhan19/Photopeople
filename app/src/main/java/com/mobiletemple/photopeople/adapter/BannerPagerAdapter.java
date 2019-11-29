@@ -1,15 +1,14 @@
 package com.mobiletemple.photopeople.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.support.v4.view.PagerAdapter;
-import android.util.Log;
+
+import androidx.viewpager.widget.PagerAdapter;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.mobiletemple.photopeople.R;
 import com.squareup.picasso.Picasso;
 

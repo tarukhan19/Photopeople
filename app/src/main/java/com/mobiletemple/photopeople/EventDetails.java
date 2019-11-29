@@ -3,11 +3,11 @@ package com.mobiletemple.photopeople;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,6 +23,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.snackbar.Snackbar;
 import com.mobiletemple.photopeople.BottomNavigation.HomePage;
 import com.mobiletemple.photopeople.Chat.ChatActivity;
 import com.mobiletemple.photopeople.Network.ConnectivityReceiver;
@@ -41,7 +42,7 @@ import java.util.Map;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class EventDetails extends AppCompatActivity  implements ConnectivityReceiver.ConnectivityReceiverListener{
+public class EventDetails extends AppCompatActivity implements ConnectivityReceiver.ConnectivityReceiverListener{
 Intent intent;
 String pic,eventtype,shoottype,price,startdate,enddate,location,description,status,freeid,quoteid,studioid,recievertype,recieverid;
 ImageView iv_pic;
@@ -497,7 +498,7 @@ LinearLayout accept,reject;
                 .make(findViewById(R.id.ll), message, Snackbar.LENGTH_LONG);
 
         View sbView = snackbar.getView();
-        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+        TextView textView = (TextView) sbView.findViewById(R.id.snackbar_text);
         textView.setTextColor(color);
         snackbar.show();
     }

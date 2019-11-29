@@ -7,12 +7,14 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
+
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+
+import androidx.annotation.RequiresApi;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;

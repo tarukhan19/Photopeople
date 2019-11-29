@@ -20,11 +20,11 @@
 //import android.os.Build;
 //import android.os.Environment;
 //import android.provider.MediaStore;
-//import android.support.annotation.NonNull;
-//import android.support.annotation.Nullable;
+//import androidx.annotation.NonNull;
+//import androidx.annotation.Nullable;
 //import android.support.annotation.RequiresApi;
 //import android.support.v4.content.ContextCompat;
-//import android.support.v7.app.AppCompatActivity;
+//import androidx.appcompat.app.AppCompatActivity;
 //import android.os.Bundle;
 //import android.util.Base64;
 //import android.util.Log;

@@ -2,31 +2,28 @@ package com.mobiletemple.photopeople.BottomNavigation;
 
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
-import android.databinding.DataBindingUtil;
-import android.graphics.drawable.ColorDrawable;
+import androidx.databinding.DataBindingUtil;
+
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.LinearSnapHelper;
-import android.support.v7.widget.SnapHelper;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSnapHelper;
+import androidx.recyclerview.widget.SnapHelper;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ScrollView;
@@ -55,7 +52,6 @@ import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.location.places.Places;
 import com.mobiletemple.photopeople.CalenderActivity;
 import com.mobiletemple.photopeople.CameraRental;
-import com.mobiletemple.photopeople.CameraRentalListActivity;
 import com.mobiletemple.photopeople.EventDetails;
 import com.mobiletemple.photopeople.FilteringActivity;
 import com.mobiletemple.photopeople.Network.ConnectivityReceiver;

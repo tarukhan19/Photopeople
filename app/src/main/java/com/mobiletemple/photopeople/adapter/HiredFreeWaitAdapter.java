@@ -2,10 +2,9 @@ package com.mobiletemple.photopeople.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,19 +15,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.mobiletemple.photopeople.Chat.ChatActivity;
 import com.mobiletemple.photopeople.Freelancer.FreelancerDetails;
 import com.mobiletemple.photopeople.R;
-import com.mobiletemple.photopeople.constant.Constants;
 import com.mobiletemple.photopeople.model.Hire_free_waitDTO;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 /**
  * Created by Ishan Puranik on 27/04/2018.

@@ -1,21 +1,17 @@
 package com.mobiletemple.photopeople.fragment;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -25,8 +21,6 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.mobiletemple.photopeople.Network.ConnectivityReceiver;
-import com.mobiletemple.photopeople.Network.MyApplication;
 import com.mobiletemple.photopeople.R;
 import com.mobiletemple.photopeople.adapter.HireCompleteAdapter;
 import com.mobiletemple.photopeople.model.Hired_free_complteDTO;

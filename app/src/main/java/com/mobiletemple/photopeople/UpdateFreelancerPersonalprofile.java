@@ -1,27 +1,20 @@
 package com.mobiletemple.photopeople;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.libraries.places.api.Places;
@@ -41,6 +34,7 @@ import com.android.volley.toolbox.Volley;
 
 import com.google.android.gms.common.api.Status;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.mobiletemple.photopeople.Network.ConnectivityReceiver;
 import com.mobiletemple.photopeople.Network.MyApplication;
 import com.mobiletemple.photopeople.constant.Constants;
@@ -774,10 +768,11 @@ public class UpdateFreelancerPersonalprofile extends AppCompatActivity  implemen
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == AUTOCOMPLETE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 Place place = Autocomplete.getPlaceFromIntent(data);
-                locationstring=place.getName();
+                locationstring = place.getName();
                 locationTV.setText(locationstring);
                 getLatLong(locationstring);
 
@@ -1228,7 +1223,7 @@ public class UpdateFreelancerPersonalprofile extends AppCompatActivity  implemen
                 .make(findViewById(R.id.ll), message, Snackbar.LENGTH_LONG);
 
         View sbView = snackbar.getView();
-        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+        TextView textView = (TextView) sbView.findViewById(R.id.snackbar_text);
         textView.setTextColor(color);
         snackbar.show();
     }

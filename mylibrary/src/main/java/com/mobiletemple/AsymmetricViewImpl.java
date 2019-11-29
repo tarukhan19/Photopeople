@@ -3,8 +3,9 @@ package com.mobiletemple;
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 final class AsymmetricViewImpl {
   private static final int DEFAULT_COLUMN_COUNT = 2;

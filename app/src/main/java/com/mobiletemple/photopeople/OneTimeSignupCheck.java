@@ -1,7 +1,7 @@
 package com.mobiletemple.photopeople;
 
 import android.app.ProgressDialog;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;

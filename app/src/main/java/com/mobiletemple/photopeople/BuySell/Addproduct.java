@@ -21,13 +21,14 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,10 +53,10 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.snackbar.Snackbar;
 import com.mobiletemple.photopeople.Network.ConnectivityReceiver;
 import com.mobiletemple.photopeople.Network.MyApplication;
 import com.mobiletemple.photopeople.R;
-import com.mobiletemple.photopeople.adapter.BitmapImageAdapter;
 import com.mobiletemple.photopeople.session.SessionManager;
 import com.mobiletemple.photopeople.util.Endpoints;
 import com.mobiletemple.photopeople.util.ImageLoadingUtils;
@@ -73,7 +74,7 @@ import java.util.ArrayList;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class Addproduct extends AppCompatActivity  implements ConnectivityReceiver.ConnectivityReceiverListener {
+public class Addproduct extends AppCompatActivity implements ConnectivityReceiver.ConnectivityReceiverListener {
 EditText prodnameET,prodpriceET,desc;
 LinearLayout selectprod,submit,photoUpload;
 TextView prodcat;
@@ -730,7 +731,7 @@ String prodNameString="",prodPriceString="",descString="",prodcatString="",prodI
                 .make(findViewById(R.id.ll), message, Snackbar.LENGTH_LONG);
 
         View sbView = snackbar.getView();
-        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+        TextView textView = (TextView) sbView.findViewById(R.id.snackbar_text);
         textView.setTextColor(color);
         snackbar.show();
     }

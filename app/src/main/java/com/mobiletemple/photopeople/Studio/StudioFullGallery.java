@@ -5,11 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Rect;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.snackbar.Snackbar;
 import com.mobiletemple.AGVRecyclerViewAdapter;
 import com.mobiletemple.AsymmetricItem;
 import com.mobiletemple.AsymmetricRecyclerView;
@@ -48,7 +50,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class StudioFullGallery extends AppCompatActivity  implements ConnectivityReceiver.ConnectivityReceiverListener{
+public class StudioFullGallery extends AppCompatActivity implements ConnectivityReceiver.ConnectivityReceiverListener{
     ArrayList<DemoItem> demoItems;
     int currentOffset=0;
     AsymmetricRecyclerView picrecyclerView;
@@ -349,7 +351,7 @@ public class StudioFullGallery extends AppCompatActivity  implements Connectivit
                 .make(findViewById(R.id.ll), message, Snackbar.LENGTH_LONG);
 
         View sbView = snackbar.getView();
-        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+        TextView textView = (TextView) sbView.findViewById(R.id.snackbar_text);
         textView.setTextColor(color);
         snackbar.show();
     }

@@ -3,10 +3,11 @@ package com.mobiletemple.photopeople;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
@@ -28,6 +29,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 import com.google.android.gms.common.api.Status;
+import com.google.android.material.snackbar.Snackbar;
 import com.mobiletemple.photopeople.BottomNavigation.HomePage;
 import com.mobiletemple.photopeople.Network.ConnectivityReceiver;
 import com.mobiletemple.photopeople.Network.MyApplication;
@@ -272,10 +274,11 @@ public class FilteringActivity extends AppCompatActivity implements Connectivity
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == AUTOCOMPLETE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-               Place place = Autocomplete.getPlaceFromIntent(data);
-                locationstring=place.getName();
+                Place place = Autocomplete.getPlaceFromIntent(data);
+                locationstring = place.getName();
                 location.setText(locationstring);
                 getLatLong(locationstring);
             } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
@@ -376,7 +379,7 @@ public class FilteringActivity extends AppCompatActivity implements Connectivity
                 .make(findViewById(R.id.ll), message, Snackbar.LENGTH_LONG);
 
         View sbView = snackbar.getView();
-        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+        TextView textView = (TextView) sbView.findViewById(R.id.snackbar_text);
         textView.setTextColor(color);
         snackbar.show();
     }

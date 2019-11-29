@@ -10,12 +10,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,10 +39,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.api.Status;
+import com.google.android.material.snackbar.Snackbar;
 import com.mobiletemple.photopeople.Network.ConnectivityReceiver;
 import com.mobiletemple.photopeople.Network.MyApplication;
-import com.mobiletemple.photopeople.ProfileExperienceActivity;
-import com.mobiletemple.photopeople.ProfileSocialActivity;
 import com.mobiletemple.photopeople.R;
 import com.mobiletemple.photopeople.constant.Constants;
 import com.mobiletemple.photopeople.model.LensDTO;
@@ -926,10 +924,11 @@ public class FreelancerProfileOne extends AppCompatActivity implements Connectiv
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == AUTOCOMPLETE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 Place place = Autocomplete.getPlaceFromIntent(data);
-                locationstring=place.getName();
+                locationstring = place.getName();
                 locationTV.setText(locationstring);
                 getLatLong(locationstring);
             } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
@@ -1667,7 +1666,7 @@ public class FreelancerProfileOne extends AppCompatActivity implements Connectiv
                 .make(findViewById(R.id.ll), message, Snackbar.LENGTH_LONG);
 
         View sbView = snackbar.getView();
-        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+        TextView textView = (TextView) sbView.findViewById(R.id.snackbar_text);
         textView.setTextColor(color);
         snackbar.show();
     }

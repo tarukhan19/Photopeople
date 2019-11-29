@@ -15,14 +15,14 @@ android {
     }
     defaultConfig {
         applicationId "com.mobiletemple.photopeople"
-        minSdkVersion 20
+        minSdkVersion 23
         targetSdkVersion 28
-        versionCode 79
-        versionName "19.9"
+        versionCode 80
+        versionName "20.0"
         multiDexEnabled true
 
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -34,50 +34,49 @@ android {
     dataBinding {
         enabled = true
     }
-
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+    }
 }
 
 dependencies
         {
             implementation fileTree(dir: 'libs', include: ['*.jar'])
-            implementation 'com.android.support:appcompat-v7:28.0.0'
-            implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-            implementation 'com.android.support:design:28.0.0'
-            implementation 'com.android.support:support-vector-drawable:28.0.0'
-            implementation 'com.android.support:support-annotations:28.0.0'
+            implementation 'androidx.appcompat:appcompat:1.0.2'
+            implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+            implementation 'com.google.android.material:material:1.0.0'
+            implementation 'androidx.vectordrawable:vectordrawable:1.0.0'
+            implementation 'androidx.annotation:annotation:1.0.0'
             implementation files('libs/android-query-full.0.26.8.jar')
-
-            implementation 'com.android.support:support-v4:28.0.0'
+            implementation 'androidx.legacy:legacy-support-v4:1.0.0'
             testImplementation 'junit:junit:4.12'
             implementation 'com.android.volley:volley:1.1.1'
 
             implementation 'com.yalantis:ucrop:2.2.0'
-            implementation 'com.github.jksiezni.' +
-                    'permissive:permissive:0.2'
             implementation 'de.hdodenhof:circleimageview:2.2.0'
 
             implementation 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
-            implementation 'com.android.support:cardview-v7:28.0.0'
-            implementation 'com.android.support:recyclerview-v7:28.0.0'
+            implementation 'androidx.cardview:cardview:1.0.0'
+            implementation 'androidx.recyclerview:recyclerview:1.0.0'
             implementation 'com.github.f0ris.sweetalert:library:1.5.1'
             implementation 'com.squareup.picasso:picasso:2.5.2'
             implementation 'com.makeramen:roundedimageview:2.3.0'
             implementation 'com.github.bumptech.glide:glide:4.9.0'
 
 
-            implementation 'com.google.android.gms:play-services-base:16.1.0'
-            implementation 'com.google.android.gms:play-services-location:16.0.0'
-            implementation 'com.google.android.gms:play-services-places:16.0.0'
-            implementation 'com.google.firebase:firebase-messaging:17.3.4'
+            implementation 'com.google.android.gms:play-services-base:17.1.0'
+            implementation 'com.google.android.gms:play-services-location:17.0.0'
+            implementation 'com.google.android.gms:play-services-places:17.0.0'
+            implementation 'com.google.firebase:firebase-messaging:20.0.1'
 
-            implementation 'com.google.firebase:firebase-auth:16.1.0'
-            implementation 'com.google.firebase:firebase-core:16.0.6'
-            implementation 'com.crashlytics.sdk.android:crashlytics:2.9.8'
-            implementation 'com.google.firebase:firebase-database:16.0.5'
-            implementation 'com.google.firebase:firebase-messaging:17.3.4'
-            implementation 'com.google.firebase:firebase-config:16.3.0'
-            implementation 'com.google.android.gms:play-services-plus:15.0.1'
-            implementation 'com.google.android.libraries.places:places:1.0.0'
+            implementation 'com.google.firebase:firebase-auth:19.2.0'
+            implementation 'com.google.firebase:firebase-core:17.2.1'
+            implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+            implementation 'com.google.firebase:firebase-database:19.2.0'
+            implementation 'com.google.firebase:firebase-messaging:20.0.1'
+            implementation 'com.google.firebase:firebase-config:19.0.3'
+            implementation 'com.google.android.gms:play-services-plus:17.0.0'
+            implementation 'com.google.android.libraries.places:places:2.1.0'
             implementation 'com.squareup.retrofit2:retrofit:2.3.0'
             implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
             implementation 'com.jakewharton:butterknife:8.4.0'
@@ -88,7 +87,7 @@ dependencies
 
             implementation 'fr.avianey.com.viewpagerindicator:library:2.4.1.1@aar'
             implementation 'com.github.omadahealth:swipy:1.2.3@aar'
-            implementation 'com.android.support:multidex:1.0.3'
+            implementation 'androidx.multidex:multidex:2.0.0'
             implementation 'com.chauthai.overscroll:overscroll-bouncy:0.1.0'
             implementation 'com.github.rubensousa:gravitysnaphelper:1.5'
             implementation 'com.skyfishjy.ripplebackground:library:1.0.1'
@@ -97,12 +96,14 @@ dependencies
             implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
             implementation 'com.facebook.android:facebook-marketing:[4,5)'
             implementation 'com.hbb20:ccp:2.1.9'
-            implementation 'com.google.firebase:firebase-dynamic-links:16.1.5'
-            implementation 'com.google.android.gms:play-services-ads:15.0.0'
-            implementation 'org.jsoup:jsoup:1.10.3'
+            implementation 'com.google.firebase:firebase-dynamic-links:19.0.0'
+            implementation 'com.google.android.gms:play-services-ads:18.3.0'
+            implementation 'org.jsoup:jsoup:1.11.3'
             // Glide
-            androidTestImplementation 'com.android.support.test:runner:1.0.1'
-            androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+            androidTestImplementation 'androidx.test:runner:1.1.0'
+            androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+            androidTestImplementation 'com.google.code.findbugs:jsr305:3.0.2'
+
             implementation 'com.payumoney.sdkui:plug-n-play:1.5.0'
 
             implementation project(':mylibrary')

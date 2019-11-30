@@ -44,6 +44,8 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.mobiletemple.photopeople.Freelancer.FreelancerProfileOne;
 import com.mobiletemple.photopeople.Network.ConnectivityReceiver;
 import com.mobiletemple.photopeople.Network.MyApplication;
@@ -80,7 +82,7 @@ public class OtpActivity extends AppCompatActivity  implements ConnectivityRecei
     private String verificationId;
     private FirebaseAuth mAuth;
     DatabaseReference databaseReference;
-
+    String regId;
     RequestQueue requestQueue;
     OneTimeSignupCheck oneTimeSignupCheck=new OneTimeSignupCheck();
 
@@ -114,7 +116,14 @@ public class OtpActivity extends AppCompatActivity  implements ConnectivityRecei
             }
         });
 
-
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( OtpActivity.this,
+                new OnSuccessListener<InstanceIdResult>() {
+                    @Override
+                    public void onSuccess(InstanceIdResult instanceIdResult) {
+                        regId = instanceIdResult.getToken();
+                        Log.e("Token",regId);
+                    }
+                });
         Intent in = getIntent();
         forChangePassword = in.getBooleanExtra("forChangePassword", false);
         mobile = in.getStringExtra("mobile");
@@ -288,7 +297,7 @@ public class OtpActivity extends AppCompatActivity  implements ConnectivityRecei
                 ob.put("user_type", userType);
                 ob.put("country_code",country_code);
                 ob.put("device_type", 1); // 1 for Android
-                ob.put("device_id", displayFirebaseRegId());
+                ob.put("device_id", regId);
 //                Toast.makeText(OTPActivity.this, ">>"+ displayFirebaseRegId(), Toast.LENGTH_SHORT).show();
                 ob.put("tnc", 1);
                 Log.e("SignUP", ob.toString());
@@ -388,17 +397,7 @@ public class OtpActivity extends AppCompatActivity  implements ConnectivityRecei
 
     }
 
-    // Fetches reg id from shared preferences and displays on the screen
-    private String displayFirebaseRegId() {
-        SharedPreferences pref = getApplicationContext().getSharedPreferences(Config.SHARED_PREF, 0);
-        String regId = pref.getString("regId", null);
-        try {
-            //Log.e("regId", "" + regId);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-        return regId;
-    }
+
     // Send OTP
     class OtpTask extends AsyncTask<String, Void, String> {
         ProgressDialog pd;

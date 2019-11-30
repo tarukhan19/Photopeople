@@ -60,7 +60,6 @@
                     android:layout_marginRight="10dp"
                     android:orientation="horizontal"
                     android:layout_alignParentBottom="true"
-                    android:layout_above="@id/margin"
                     android:weightSum="1">
 
                     <LinearLayout

@@ -52,6 +52,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.mobiletemple.photopeople.BottomNavigation.HomePage;
 import com.mobiletemple.photopeople.ChatNotification.Token;
 import com.mobiletemple.photopeople.Network.ConnectivityReceiver;
@@ -98,6 +99,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectivityRece
     String feelancer_type = "";
     private FirebaseAuth mAuth;
     JSONObject obj;
+    String regId;
     String id, first_name, user_type, profile_image, phone, photoscount;
     DatabaseReference databaseReference;
     FirebaseAuth.AuthStateListener authListener;
@@ -121,7 +123,14 @@ public class LoginActivity extends AppCompatActivity implements ConnectivityRece
         mayRequestPermissions();
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( LoginActivity.this,
+                new OnSuccessListener<InstanceIdResult>() {
+                    @Override
+                    public void onSuccess(InstanceIdResult instanceIdResult) {
+                        regId = instanceIdResult.getToken();
+                        Log.e("Token",regId);
+                    }
+                });
 
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -250,7 +259,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectivityRece
                 Map<String, String> params = new HashMap<>();
                 params.put("login_type", "3");
                 params.put("device_type", "1");
-                params.put("device_id", displayFirebaseRegId());
+                params.put("device_id", regId);
                 params.put("contact_no", mobile);
                 params.put("password", password);
                 params.put("email", email);
@@ -318,16 +327,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectivityRece
 
     }
 
-    private String displayFirebaseRegId() {
-        SharedPreferences pref = getApplicationContext().getSharedPreferences(Config.SHARED_PREF, 0);
-        String regId = pref.getString("regId", null);
-        try {
-            //Log.e("regId", "" + regId);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-        return regId;
-    }
+
 
     private boolean mayRequestPermissions() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {

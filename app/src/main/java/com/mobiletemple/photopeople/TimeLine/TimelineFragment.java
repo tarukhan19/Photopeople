@@ -633,8 +633,4 @@ public class TimelineFragment extends Fragment implements ConnectivityReceiver.C
             }
         }
     }
-
-
-
-
 }

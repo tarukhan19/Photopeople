@@ -38,8 +38,7 @@ public class OreoNotification extends ContextWrapper {
 
     }
 
-    public  NotificationManager getNotificationManager()
-    {
+    public  NotificationManager getNotificationManager() {
         if (notificationManager==null)
         {
             notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
@@ -52,8 +51,7 @@ public class OreoNotification extends ContextWrapper {
 
     public Notification.Builder getOreoNotification(String title, String body,
 
-                                                    PendingIntent pendingIntent, Uri sounduri, String icon)
-    {
+                                                    PendingIntent pendingIntent, Uri sounduri, String icon) {
         return new Notification.Builder(getApplicationContext(),CHANNEL_ID)
                 .setContentIntent(pendingIntent)
                 .setContentTitle(title)
@@ -61,6 +59,5 @@ public class OreoNotification extends ContextWrapper {
                 .setSmallIcon(Integer.parseInt(icon))
                 .setSound(sounduri)
                 .setAutoCancel(true);
-
     }
 }

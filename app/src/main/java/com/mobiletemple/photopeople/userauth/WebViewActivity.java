@@ -2,15 +2,16 @@ package com.mobiletemple.photopeople.userauth;
 
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.mobiletemple.photopeople.R;
 import com.mobiletemple.photopeople.util.Endpoints;
@@ -46,18 +47,20 @@ Endpoints endpoints;
         webView.setHorizontalScrollBarEnabled(false);
     }
 
-    class MyClient extends WebViewClient
-    {
+    class MyClient extends WebViewClient {
         @Override
-        public void onPageStarted(WebView view, String url, Bitmap favicon)
-        {
-            pd.show();
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            if(!isFinishing()) {
+                pd.show();
+            }
             super.onPageStarted(view, url, favicon);
         }
 
         @Override
         public void onPageFinished(WebView view, String url) {
-            pd.cancel();
+            if(!isFinishing()) {
+                pd.cancel();
+            }
             super.onPageFinished(view, url);
         }
 

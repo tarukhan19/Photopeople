@@ -55,8 +55,7 @@ public class TimelineChatAdapter extends RecyclerView.Adapter<TimelineChatAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderProgressAdapter holder, final int position)
-    {
+    public void onBindViewHolder(@NonNull ViewHolderProgressAdapter holder, final int position) {
 
         TimelineChat chat=chats.get(position);
         holder.showmesage.setText(chat.getMessage());
@@ -103,12 +102,10 @@ public class TimelineChatAdapter extends RecyclerView.Adapter<TimelineChatAdapte
     @Override
     public int getItemViewType(int position) {
         fuser= FirebaseAuth.getInstance().getCurrentUser();
-        if (chats.get(position).getSender().equals(mSessionManager.getLoginSession().get(SessionManager.KEY_USERID)))
-        {
+        if (chats.get(position).getSender().equals(mSessionManager.getLoginSession().get(SessionManager.KEY_USERID))) {
             return MSG_TYPE_RIGHT;
         }
-        else
-        {
+        else {
             return MSG_TYPE_LEFT;
         }
     }

@@ -1,0 +1,2 @@
+android/support/design/widget/AppBarLayout.class
+com/facebook/appevents/InternalAppEventsLogger.class

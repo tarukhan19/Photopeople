@@ -214,8 +214,8 @@ public class OtpActivity extends AppCompatActivity  implements ConnectivityRecei
         @Override
         public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
             String code = phoneAuthCredential.getSmsCode();
-            Log.e("code",code);
             if (code != null) {
+                Log.e("code",code);
             }
         }
 

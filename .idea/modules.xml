@@ -3,6 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Photopeople.iml" filepath="$PROJECT_DIR$/Photopeople.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UniversalImageLoader-Library/Photopeople-UniversalImageLoader-Library.iml" filepath="$PROJECT_DIR$/UniversalImageLoader-Library/Photopeople-UniversalImageLoader-Library.iml" group="Photopeople/UniversalImageLoader-Library" />
+      <module fileurl="file://$PROJECT_DIR$/app/Photopeople-app.iml" filepath="$PROJECT_DIR$/app/Photopeople-app.iml" group="Photopeople/app" />
+      <module fileurl="file://$PROJECT_DIR$/library/Photopeople-library.iml" filepath="$PROJECT_DIR$/library/Photopeople-library.iml" group="Photopeople/library" />
+      <module fileurl="file://$PROJECT_DIR$/mylibrary/Photopeople-mylibrary.iml" filepath="$PROJECT_DIR$/mylibrary/Photopeople-mylibrary.iml" group="Photopeople/mylibrary" />
+      <module fileurl="file://$PROJECT_DIR$/StudioProjects-Photopeople.iml" filepath="$PROJECT_DIR$/StudioProjects-Photopeople.iml" group="Photopeople" />
       <module fileurl="file://$PROJECT_DIR$/UniversalImageLoader-Library/UniversalImageLoader-Library.iml" filepath="$PROJECT_DIR$/UniversalImageLoader-Library/UniversalImageLoader-Library.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
